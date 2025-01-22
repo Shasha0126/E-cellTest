@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="/stylesheets/mainstyle.css">
+</head>
+<body>
+    <div class="navbody">
+        <div class="burger" id="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>     
+        <div class="nav" id="nav">
+            <a href="/main">Home</a>
+            <a href="/">Grid</a>
+            <a href="https://www.linkedin.com/in/abhilasha-khangar-665b02303" target="_blank"  rel="noopener noreferrer">LinkedIn</a>          
+
+        </div>
+
+    </div>    
+
+    <div class="main">
+        <div class="profile">
+            <div class="pic">
+                <img src="/images/pfp.jpg" alt="">
+            </div>
+            <h1 class="name">ABHILASHA</h1>
+            <p class="reg">REG. NO: 20236006</p>
+            <button class="insta" onclick="window.open('https://www.instagram.com/abhilashakhangar?igsh=dDhxNDB2cGFleXMw','_blank')">
+                Visit Instagram
+            </button>
+
+
+        </div>
+    </div>
+
+    <audio id="music">
+        <source src="/audio/1636266670_pink-soldiers.mp3" type="audio/mpeg">
+    </audio>
+    <div class="theme">
+        <button class="unmute" onclick="unmuteMusic()"></button>
+        <button class="mute" onclick="muteMusic()"></button>     
+    </div>
+
+
+    
+
+
+
+
+
+    <script>
+        const burger = document.getElementById('burger');
+        const nav = document.getElementById('nav');
+        burger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        });
+        
+        const themeMusic=document.getElementById("music");
+        window.onload=()=>{
+            themeMusic.play().catch((error)=>{
+                console.log("autoplay:",error);
+            })
+        }
+
+    function unmuteMusic() {
+        const themeMusic = document.getElementById("music");
+        themeMusic.muted = false;
+        themeMusic.play().catch(error => console.log("Unmute error:", error));
+    }   
+    function muteMusic() {
+        const themeMusic = document.getElementById("music");
+        if (themeMusic) {
+            themeMusic.pause();  
+            themeMusic.currentTime = 0;
+        }else{
+            console.error("Audio element with id 'theme' not found!");
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

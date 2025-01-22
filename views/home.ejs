@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="/stylesheets/homestyle.css">
+</head>
+<body>
+    <div class="navbody">
+        <div class="burger" id="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>     
+        <div class="nav" id="nav">
+            <a href="/main">Home</a>
+            <a href="/">Grid</a>
+            <a href="https://www.linkedin.com/in/abhilasha-khangar-665b02303" target="_blank"  rel="noopener noreferrer">LinkedIn</a>          
+
+        </div>
+
+    </div>
+
+    <div class="main">
+        <div class="box color">
+
+        </div>
+        <div class="box logo">
+            <img src="/images/ecell.webp" alt="logo">
+
+        </div>
+        <div class="box gridbox">
+            <div class="grid">
+                <div class="sq"></div>
+                <div class="sq"></div>
+                <div class="sq"></div>
+                <div class="sq"></div>
+                <div class="sq"></div>
+                <div class="sq"></div>
+                <div class="sq"></div>
+                <div class="sq"></div>
+                <div class="sq last"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const burger = document.getElementById('burger');
+        const nav = document.getElementById('nav');
+        burger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        });
+
+
+
+
+        const squares = document.querySelectorAll('.sq');
+        let clickedSquares = []; 
+        squares.forEach((square, index) => {
+            square.addEventListener('click', function() {
+                square.classList.add('clicked')
+                clickedSquares.push(index);
+                if (square.classList.contains('last')) {
+                    clickedSquares.forEach((clickedIndex, delay) => {
+                        setTimeout(() => {
+                            squares[clickedIndex].classList.remove('clicked');
+                        }, delay * 300);
+                    });
+                    clickedSquares = [];
+                }
+            });
+        });
+
+    </script>
+
+    
+</body>
+</html>
